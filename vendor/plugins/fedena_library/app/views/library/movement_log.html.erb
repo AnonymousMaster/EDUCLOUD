@@ -1,0 +1,76 @@
+<div class="panel panel-primary" id="content-header">
+
+
+<div class = "panel-heading">
+    <h4> 
+      <i class="icon-book"></i> <i class="icon-list-ol"> </i>
+      <%= "#{t('library_text')}"%> | 
+      <span><%= "#{t('book_movement_log')}"%></span>
+    </h4>
+</div>
+
+<div class = "panel-body">
+      <div class = "barra-estado">
+        <div id="app-back-button">
+          <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+        </div>
+      </div>
+
+
+<div id="page-yield">
+
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <%= flash[:notice] %> </p>
+  <% end %>
+
+
+
+
+<div class="table-responsive">
+    <table  class="table table-bordered table-striped table-hover table-condensed">
+      <tr class="tr-head">
+        <td class="success"><%= "#{t('book_number')}"%></td>
+        <td class="success"><%= "#{t('borrowed_by')}"%></td>
+        <td class="success"><%= "#{t('status')}"%></td>
+        <td class="success"><%= "#{t('issue_date')}"%></td>
+        <td class="danger"><%= "#{t('due_date')}"%></td>
+      </tr>
+      <tr class="tr-blank"></tr>
+      <% @log.each do |log| %>
+        <tr class="tr-<%= cycle('odd', 'even') %>">
+
+          <td class="active"><%= link_to  log.book.book_number, :controller=>'books', :action=>'show', :id=>log.book_id %>
+          </td>
+
+          <% if log.user.student %>
+            <% link_id = log.get_student_id %>
+
+            <td class="active"><%= link_to log.user.full_name, :controller=>'student', :action=>'profile', :id=>link_id %>
+            </td>
+
+          <% else %>
+            <% link_id = log.get_employee_id %>
+
+            <td class="active"><%= link_to log.user.full_name, :controller=>'employee', :action=>'profile', :id=>link_id %>
+            </td>
+
+          <% end %>
+          <td class="active"><% case log.book.status when 'Lost'%><%= "#{t('lost')}" %> <% when 'Binding' %> <%= "#{t('binding')}" %> <% else %><%= t("#{log.status.downcase}") %><% end %>
+          </td>
+
+
+          <td class="col-1"><%= log.issue_date %></td>
+
+          <td class="col-1"><%= log.due_date %></td>
+        </tr>
+
+      <% end  %>
+    </table>
+
+
+    <%= will_paginate @log %>
+
+  </div>
+</div>
+</div>
+</div>

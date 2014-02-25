@@ -1,0 +1,5 @@
+page << "$$('#grn_supplier_type_id').first().value = #{@supplier_type}"
+page << "$$('#grn_supplier_id').first().value = #{@supplier}"
+page << "$$('#person_store_id').first().value = #{@store}"
+page.replace_html 'update_po_item', :partial => 'po_items', :object => @grn_items
+

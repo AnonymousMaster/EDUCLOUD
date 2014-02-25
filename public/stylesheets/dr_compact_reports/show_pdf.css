@@ -1,0 +1,45 @@
+#pdf-table{
+  border-spacing: 0px 1px;
+  background: #ADACAB;
+  font-size: 12px;
+  width: 100%;
+  border: 1px solid #ADACAB;
+}
+#pdf-table td{
+  padding: 5px;
+}
+#pdf-table .tr-head{
+  background: #FFFFFF ;
+  font-weight: bold;
+}
+#pdf-table .tr-head td{
+font-size: 11px;
+}
+#pdf-table .tr-odd{
+  background: #EEEEEE ;
+}
+
+#pdf-table .tr-even{
+  background: #FFFFFF;
+}
+.student_box {
+}
+
+.student_box ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  font-size: 12px;
+}
+
+.student_box li{
+  margin:0px 0px 10px 0px;
+  padding:0;
+}
+
+.student_box li.key {
+  float:left;
+  font-weight:bold;
+  width: 160px;
+  clear: left;
+}

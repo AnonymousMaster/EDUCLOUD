@@ -1,0 +1,2 @@
+page << "$('#{@i}').up(2).select('.nested_price').first().value = #{@price}"
+page << "$('#{@i}').up(2).select('.nested_qty').first().value = #{@qty}"

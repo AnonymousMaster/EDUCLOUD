@@ -1,0 +1,58 @@
+<div class="panel panel-primary" id="content-header">
+
+<div class = "panel-heading">
+    <h4> 
+      <i class="icon-book"></i> <i class="icon-zoom-in"> </i>
+      <%= "#{t('library_text')}"%> | 
+      <span><%= "#{t('book_search')}"%></span>
+    </h4>
+</div>
+
+<div class = "panel-body">
+      <div class = "barra-estado">
+        <div id="app-back-button">
+          <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+        </div>
+      </div>
+
+<div id="inner-tab-menu">
+  <ul>
+    <li><%= link_to "#{t('detail_search_text')}", :action=>'detail_search' %> </li>
+  </ul>
+</div>
+
+<div id="page-yield">
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <%= flash[:notice] %> </p>
+  <% end %>
+  <% unless flash[:warn_notice].nil? %>
+    <div id="errorExplanation" class="errorExplanation"><span><%= flash[:warn_notice] %> </span></div>
+  <% end %>
+
+
+  <div class = "row">
+    <% form_for :search, :url=>{:controller=>'library', :action=>'search_result'} do |f| %>
+
+       <div class="col-md-6 form-group">
+        <label for="search"><%= "#{t('search_text')}"%> </label>
+        <div>
+          <%= f.text_field :name , :class => 'form-control input-sm' %>
+        </div>
+      </div>
+
+       <div class="col-md-6 form-group">
+        <label for="search_by"><%= "#{t('search_by')}"%></label>
+        <div class="text-input-bg">
+          <%= f.select :search_by,   [["#{t('book_number')}",'Book Number'],["#{t('title')}",'title'], ["#{t('tag')}",'tag'], ["#{t('author')}",'author']] %>
+        </div>
+      </div>
+</div>
+
+<div class = "form-actions">
+  <%= f.submit "#{t('search_text')}", :class => "btn btn-primary" %>
+    <% end %>    
+</div>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,75 @@
+#listing2{
+  border-spacing: 0px 1px;
+  background: #99FF66;
+  font-size: 13px;
+  width: 100%;
+}
+#listing2 td{
+  padding: 3px;
+}
+#listing2 .tr-head{
+  color: #CC0000;
+  background: #DBFFCA;
+  font-weight: bold;
+}
+#listing2 .tr-odd{
+  background: #DBFFCA;
+}
+
+#listing2 .tr-even{
+  background: #E8FFDD;
+}
+#top_msg{
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+#top_msg span{
+  color: #C00;
+}
+#listing{
+	width: 100%;
+}
+
+.td-name:hover .full-name span{
+display: block;
+position: absolute;
+min-width: 89px;
+background-color: white;
+border: 4px solid #C3D9FF;
+min-height: 30px;
+left: 167px;
+top: 38px;
+color: black;
+padding: 5px;
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+padding-top: 10px;
+color: black;
+font-weight: bold;
+font-size: 12px;
+}
+
+.td-name .full-name span{
+    display: none;
+    color: #FFFFFF;
+}
+
+.td-name .full-name{
+    position: relative;
+    left: -77px;
+    top: -73px;
+}
+.tr-odd td, .tr-even td {
+padding: 5px;
+padding-left: 10px;
+}
+#att{
+  margin-top: -30px;
+  position: absolute;
+  font-size: 13px;
+}
+#listing{
+font-size: 13px;
+}

@@ -1,0 +1,59 @@
+es:
+  activerecord:
+    attributes:
+
+      instant_fee:
+        amount: "Cantidad"
+        pay_date: "Fecha de pago"
+
+      instant_fee_category:
+        name: "Nombre"
+        description: "Descripción"
+
+      instant_fee_particular:
+        name: "Nombre"
+        description: "Descripción"
+        amount: "Cantidad"
+        instant_fee_category_id: "Categoría de tasas instantánea"
+
+
+  payee: "Beneficiario"
+  reciept: "Recibo"
+  guest: "invitado"
+  guest_name: "Invitado Nombre"
+  payee_name: "Nombre del beneficiario"
+  net_amount: "Importe neto"
+  custom: "Costumbre"
+  add_category: "Añadir categoría"
+  instant_fee_text: "Tarifa instantánea"
+  instant_fees_text: "Tarifas instantánea"
+  particular_name: "Nombre en particular"
+  particular_list: "Datos Lista de"
+  pay_instant_fees: "Pagar las cuotas al instante"
+  select_payee: "Seleccione Beneficiario"
+  create_instant_fee: "Crear Tarifa instantánea"
+  instant_fee_reciept: "Recibo de pago al instante"
+  manage_instant_fees: "Gestionar tarifas instantánea"
+  category_description: "Descripción de la categoría"
+  select_category_type: "Seleccione el tipo de categoría"
+  instant_fee_management: "Instancia Comisión de Gestión"
+  saving_problem_occured: "Problema al guardar ocurrido"
+  view_created_instant_fee: "Ver Tarifa Creado instantánea"
+  no_default_category_exist: "No existen categorías por defecto"
+  instant_fee_saved_succesfully: "Cuota instantánea guardado con éxito"
+  instant_fees_transaction_report: "Instantánea Tarifas Reporte de Operación"
+  edit_instant_category_for_fees: "Editar Categoría instantánea de Honorarios"
+  create_instant_category_for_fee: "Crear categoría instantánea de Honorarios"
+  create_instant_particular_for_fee: "Crear instantánea especial para los honorarios"
+  update_instant_particular_for_fees: "Actualización instantánea especial para los honorarios"
+  no_default_particular_exist: "No existen datos por defecto en esta categoría"
+  are_you_want_to_delete_category: "¿Está seguro que desea eliminar esta categoría?"
+  are_you_want_to_delete_particular: "¿Está seguro que desea eliminar este particular?"
+  instant_fee_category_created_successfully: "Categoría de tasas instantánea creado con éxito"
+  instant_fee_category_updated_successfully: "Categoría de tasas instantánea actualizado correctamente"
+  instant_fee_particular_created_successfully: "En particular cuota instantánea creado con éxito"
+  instant_fee_particular_deleted_successfully: "En particular cuota instantánea eliminado con éxito"
+  instant_fee_particular_updated_successfully: "En particular cuota instantánea actualizado correctamente"
+  InstantFee_account: "Cuenta Tarifa instantánea"
+  fedena_instant_fee_module: "Módulo Fedena Cuota instantánea"
+  manage_and_pay_instant_fees: "Administrar y pagar al instante"

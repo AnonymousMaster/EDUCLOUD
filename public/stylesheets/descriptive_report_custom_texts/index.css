@@ -1,0 +1,34 @@
+.text-area-bg {
+  background: transparent none repeat scroll 0 0;
+  float: left;
+  width: 250px;
+}
+.label-field-pair input, .label-field-pair textarea {
+  width: 300px;
+}
+.label-field-pair textarea {
+  border-radius: 10px;
+  background: #EEEEEE none repeat scroll 0 0;
+  border: 1px solid #C6C6C6;
+  margin: 5px 0 0px 10px;
+  padding: 5px;
+  width: 205px;
+  height: 200px;
+}
+.label-field-pair textarea:focus {
+background: #fff;
+border: 1px solid #9e0f15;
+}
+ .submit-button {
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+background: #27292B;
+border: none;
+color: white;
+font-size: 14px;
+font-weight: bold;
+margin: 200px 0 0 290px;
+padding: 7px;
+float: left;
+cursor: pointer;
+}

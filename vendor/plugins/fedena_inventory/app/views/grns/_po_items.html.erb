@@ -1,0 +1,29 @@
+<% str = 1335177557793 %>
+
+<% @grn_items.each_with_index do |po,index|  %>
+  <% rnd_id = str+index  %>
+<div id="grn_items_<%=rnd_id%>" >
+
+<div class="fields" >
+    <table id="listing" align="center" width="100%" cellpadding="1" cellspacing="1">
+
+      <tr>
+
+        <td class="text-input" id="person_store_item_id" >
+          <%= text_field_tag "" , po.store_item.item_name , :disabled => true%>
+
+          <%= hidden_field_tag "grn[grn_items_attributes][#{rnd_id}][store_item_id]" , po.store_item_id %>
+        </td>
+        <td class="text-input">  <%= text_field_tag "grn[grn_items_attributes][#{rnd_id}][quantity]", po.quantity %></td>
+        <td class="text-input"><%= text_field_tag "grn[grn_items_attributes][#{rnd_id}][unit_price]", po.store_item.unit_price,:html=>{:class => "nested_qty"} %></td>
+        <td class="text-input"><%= text_field_tag "grn[grn_items_attributes][#{rnd_id}][tax]",  po.tax %></td>
+        <td class="text-input" ><%= calendar_date_select_tag "grn[grn_items_attributes][#{rnd_id}][expiry_date]", I18n.l(Date.today,:format=>:default),
+            :year_range => 15.years.ago..5.years.from_now , :readonly=>true,:popup=>"force"%></td>
+        <%= hidden_field_tag "grn[grn_items_attributes][#{rnd_id}][_delete]"  %>
+        <td id="remove"> <%= link_to_function("#{image_tag("/images/buttons/Delete.png", :border=>0)}", "remove_grn_fields(#{rnd_id})")%></td>
+      </tr>
+    </table>
+</div>
+  </div>
+
+<% end %>

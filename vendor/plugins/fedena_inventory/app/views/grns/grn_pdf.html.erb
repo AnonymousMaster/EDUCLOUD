@@ -1,0 +1,106 @@
+
+
+<div id="page-yield">
+
+
+
+  <div class="hor_line"></div>
+  <div id ="main_info">
+    <h2><%= t('grn_text') %>  </h2>
+  </div>
+  <div class="hor_line"></div>
+
+ <div class="label-field-show">
+   <div class="label-container1"><%= "#{t('grn_no')}" %></div>
+ <div class="label-output">:  <%=h @grn.grn_no  %></div>
+</div>
+
+
+ <div class="label-field-show">
+   <div class="label-container1"><%= "#{t('supplier type')}" %></div>
+ <div class="label-output">:  <%=h  @grn.supplier_type.name unless @grn.supplier_type.nil? %></div>
+</div>
+
+
+
+ <div class="label-field-show">
+   <div class="label-container1"><%= "#{t('supplier')}" %></div>
+ <div class="label-output">:  <%=h  @grn.supplier.name unless @grn.supplier.nil? %></div>
+</div>
+
+
+ <div class="label-field-show">
+   <div class="label-container1"><%= "#{t('purchase order')}" %></div>
+ <div class="label-output">:  <%=h  @grn.purchase_order.po_no unless @grn.purchase_order.nil?  %></div>
+</div>
+
+
+
+ <div class="label-field-show">
+   <div class="label-container1"><%= "#{t('store')}" %></div>
+ <div class="label-output">:  <%=h @grn.store.name %></div>
+</div>
+
+
+ <div class="label-field-show">
+   <div class="label-container1"><%= "#{t('invoice no')}" %></div>
+ <div class="label-output">:  <%=h @grn.invoice_no %></div>
+</div>
+
+
+
+ <div class="label-field-show">
+   <div class="label-container1"><%= "#{t('grn_date')}" %></div>
+ <div class="label-output">:  <%=h @grn.grn_date  %></div>
+</div>
+
+
+ <div class="label-field-show">
+   <div class="label-container1"><%= "#{t('invoice_date')}" %></div>
+ <div class="label-output">:  <%=h @grn.invoice_date  %></div>
+</div>
+
+
+
+ <div class="label-field-show">
+   <div class="label-container1"><%= "#{t('other_charges')}" %></div>
+ <div class="label-output">:  <%=h @grn.other_chages  %></div>
+</div>
+
+
+
+
+
+ <div class="label-field-show">
+   <div class="label-container1"></div>
+ <div class="label-output"></div>
+</div>
+  <div class="label-container1"></div>
+
+    <table id="pdf-table" width="100%" cellspacing="0">
+
+        <tr class="table-header"><td class="col-pdf"><%= t('sl_no') %></td><td class="col-pdf"><%= t('Item') %></td><td class="col-pdf"><%= t('quantity') %></td><td class="col-pdf"> <%= t('price') %></td><td class="col-pdf"> <%= t('tax') %></td><td class="col-pdf"> <%= t('total') %></td></tr>
+        <% p = 0  %>
+        <% c= 'even' %>
+
+      <%  @grn.grn_items.each_with_index do |i, p| %>
+    <tr class="<%= cycle(c,(["odd","even"]-[c]).first) %>">
+                <td class="col-pdf"><%= p+=1 %></td>
+              <td class="col-pdf"> <%=h  i.store_item.item_name  unless i.store_item.nil? %></td>
+
+             <td class="col-pdf"> <%=h  i.quantity %></td>
+            <td class="col-pdf"><%=h i.store_item.unit_price  %></td>
+             <td class="col-pdf"><%=h i.tax unless i.tax.nil?%></td>
+           <td class="col-pdf"><%=h i.quantity *  i.store_item.unit_price + ( i.quantity *  i.store_item.unit_price *  i.tax * 0.01)  %></td>
+        </tr>
+       
+          <% end %>
+      
+        <tr class="<%= cycle(c,(["odd","even"]-[c]).first) %>">
+          <td colspan="5" class="col-8"><%= t('grand_total') %></td>
+          <td class="col-pdf"><%=h  @total+=@grn.other_chages unless @grn.other_chages.nil? %></td>
+        </tr>
+</table>
+
+
+</div>

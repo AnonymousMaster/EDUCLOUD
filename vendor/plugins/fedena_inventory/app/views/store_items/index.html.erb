@@ -1,0 +1,87 @@
+
+<%-# Fedena
+#Copyright 2010 Foradian Technologies Private Limited
+#
+#This product includes software developed at
+#Project Fedena - http://www.projectfedena.org/
+#
+#Licensed under the Apache License, Version 2.0 (the "License");
+#you may not use this file except in compliance with the License.
+#You may obtain a copy of the License at
+#
+#  http://www.apache.org/licenses/LICENSE-2.0
+#
+#Unless required by applicable law or agreed to in writing,
+#software distributed under the License is distributed on an
+#"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#KIND, either express or implied.  See the License for the
+#specific language governing permissions and limitations
+#under the License. -%>
+<div class="panel panel-primary" id="content-header">
+
+<div class = "panel-heading">
+    <h4> 
+      <i class="icon-truck"></i> <i class="icon-dropbox"> </i>
+      Articulos de Inventario | 
+      <span><%= t('home') %></span>
+    </h4>
+  </div>
+  
+<div class = "panel-body">
+      <div class = "barra-estado">
+        <div id="app-back-button">
+          <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+        </div>
+      </div>
+
+<div id="inner-tab-menu">
+  <ul>
+ <%  if permitted_to? :index, :grns %><li><%= link_to "#{t('grn_text')}", grns_path %> </li><%  end %>
+  <%  if permitted_to? :index, :indents %>    <li><%= link_to "#{t('indent_text')}", indents_path %> </li><%  end %>
+  <%  if permitted_to? :index, :purchase_orders %>   <li><%= link_to "#{t('po_text')}", purchase_orders_path %> </li><%  end %>
+ <%  if permitted_to? :new, :store_items %><li><%= link_to "#{t('new_text')}", new_store_item_path %> </li><%  end %>
+  </ul>
+</div>
+
+<div class="bread_crumb">
+      <%= link_to "#{t('inventory')}",:controller=>"inventories",:action=>"index" %> &raquo;
+      <%= t('items') %>
+    </div>
+
+ <div id="page-yield">
+
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <%= flash[:notice] %> </p>
+  <% end %>
+
+
+
+<% form_tag store_items_path, :method => 'get' do %>
+ <div class="label-field-pair">
+<label><%= "#{t('search_by_store_item')}" %><%= image_tag('loader.gif', :align => 'absmiddle', :border=> 0, :id=>'loader', :style=>'display: none;') %></label>  
+  <div class="text-input-bg"><%= select :search, :store, Store.all.map { |m| [m.name]}.push(["Select All","All"]),{ :prompt=> ' Select Store ' } %>
+  </div>
+    <div id="search-container">
+    <%= text_field_tag('query', params[:query], :autocomplete => 'off') %><br/>
+   </div>
+</div>
+
+
+  <%= observe_fields ['query', 'search_store'],
+    :frequency => 0.5,
+    :update => 'information',
+    :before => "Element.show('loader')",
+    :success => "Element.hide('loader')",
+    :url => {:action => 'search_ajax'} %>
+  <% end %>
+
+  <% unless flash[:warn_notice].nil? %>
+    <div id="errorExplanation" class="errorExplanation"><%= flash[:warn_notice] %> </div>
+  <% end %>
+
+    <div id="information"></div>
+
+</div>
+<%#= render :partial=> 'search_ajax'%>
+</div>
+</div>

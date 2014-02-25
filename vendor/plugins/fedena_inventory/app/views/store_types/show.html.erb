@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @store_type.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @store_type.code %>
+</p>
+
+
+<%= link_to 'Edit', edit_store_type_path(@store_type) %> |
+<%= link_to 'Back', store_types_path %>

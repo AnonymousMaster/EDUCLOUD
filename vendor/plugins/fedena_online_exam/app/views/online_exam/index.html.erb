@@ -1,0 +1,60 @@
+
+<div class="panel panel-primary" id="content-header">
+
+<div class = "panel-heading">
+    <h4> 
+      <i class = "icon-edit"></i><i class = "icon-desktop"></i>
+      <%= t('online_exam_text') %> | 
+      <span><%= t('home') %></span>
+    </h4>
+  </div>
+
+  <div class = "panel-body">
+      <div class = "barra-estado">
+        <div id="app-back-button">
+          <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+        </div>
+      </div>
+
+<div id="page-yield">
+
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <%= flash[:notice] %> </p>
+  <% end %>
+
+  <div class="box">
+    <%  if permitted_to? :index,:grading_levels %>
+      <div class="link-box">
+        <div class="link-heading"><%= link_to "#{t('new_online_exam_text')}" ,:action=>'new_online_exam' %> </div>
+        <div class="link-descr"><%= t('create_new_online_exam') %> </div>
+      </div>
+    <% end %>
+    
+    
+    <%  if permitted_to? :index,:grading_levels %>
+      <div class="link-box">
+        <div class="link-heading"><%= link_to "#{t('view_online_exams')}" ,:action=>'view_online_exam' %> </div>
+        <div class="link-descr"><%= t('view_existing_online_exam') %></div>
+      </div>
+    <% end %>
+
+    <%  if permitted_to? :index,:grading_levels %>
+      <div class="link-box">
+        <div class="link-heading"><%= link_to "#{t('view_exam_results')}" ,:action=>'view_result' %> </div>
+        <div class="link-descr"><%= t('view_online_exam_results') %></div>
+      </div>
+    <% end %>
+
+
+    <%  if permitted_to? :index,:grading_levels %>
+      <div class="link-box">
+        <div class="link-heading"><%= link_to "#{t('reset_exam')}" ,:action=>'reset_exam' %> </div>
+        <div class="link-descr"><%= t('reset_exam_for_a_student') %></div>
+      </div>
+    <% end %>
+
+    <div class="extender"></div>
+</div>
+</div>
+</div>
+</div>

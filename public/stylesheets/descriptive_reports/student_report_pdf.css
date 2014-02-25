@@ -1,0 +1,138 @@
+body {
+  /*background:#555aa3;*/
+  font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+.bold {
+  font-weight:bold;
+}
+
+#pdf_wrapper {
+  margin-top: 18px;
+  width:960px;
+}
+
+#pdf-header{
+margin: 0px;
+}
+#pdf_logo {
+  width:200px;
+  float:left;
+}
+
+#pdf_title {
+  width:750px;
+  float:left;
+  color:#c60000;
+}
+
+#pdf_title h2{
+  text-align:center;
+  margin-top:10px;
+}
+
+#student_details {
+  width:960px;
+  margin: 15px 0px;
+}
+
+.student_box {
+  width:960px;
+  overflow: hidden;
+  display: block;
+  font-size: 14px;
+}
+
+.student_box .key {
+  float:left;
+  font-weight:bold;
+  padding: 3px;
+  min-width: 154px;
+}
+
+.student_box .value {
+  font-family: monospace;
+  float: left;
+  padding: 3px;
+  min-width: 154px;
+}
+.student_box .key-value-pair {
+  float: left;
+  width: auto;
+  overflow: hidden;
+}
+.interval {
+  font-weight:bold;
+}
+
+.pdf_marklist table {
+  border-collapse: collapse;
+  text-align: left; width: 100%;
+}
+.pdf_marklist thead th {
+  background:#EDEEEE;
+  padding: 5px 2px;
+  font-weight: normal;
+}
+
+.pdf_marklist tbody td {
+  padding: 3px 0px;
+  font-weight: bold;
+}
+tr.subject_head {
+  background: #EDEEEE ;
+}
+
+.pdf_marklist tr.pdf_remarks td{
+  color:#636466;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 2px;
+}
+
+.pdf_avarage {
+  padding: 5px;
+  border-bottom:1px solid #CFCFCF;
+  border-top:1px solid #CFCFCF;
+  font-size: 18px;
+  width:920px;
+  float:left;
+  margin: 3px 0px;
+}
+
+.pdf_avarage_key{
+  color:#cc0000;
+  float:left;
+}
+
+.pdf_avarage_value{
+  float:left;
+  margin-left:10px;
+}
+
+.pdf_custom_text {
+  color:#333333;
+  float:left;
+  width:100%;
+}
+
+.pdf_custom_text p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.pdf_batch_name {
+  width:960px;
+  text-align:center;
+  color:#77797a;
+}
+
+
+.page-break1{
+  page-break-after: always;
+}
+
+
+.logo{
+  margin-top: -26px ;
+}

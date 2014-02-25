@@ -1,0 +1,177 @@
+.page {
+    page-break-before: avoid;
+    page-break-after: always;
+}
+.page-bottom{
+    clear:left;
+}
+#page-yield {
+    width:100%;
+    margin: 0 auto;
+    float: left;
+    overflow: hidden;
+}
+
+
+
+.hor_line{
+    width:auto;
+    background: #333333;
+    height: 1px;
+}
+
+h2.heading{
+    text-align: center;
+    margin:5px;
+}
+
+#main_info h4{
+    color: #555555;
+    margin-top: 18px;
+    font-weight: normal;
+}
+
+#main_info h2{
+    margin-bottom: 2px;
+    font-weight: normal;
+
+}
+
+
+.odd{
+    height:auto;
+    background: #EEEEEE;
+
+}
+
+.even{
+
+    height:auto;
+    background: #fff;
+
+
+}
+tr.even{
+    border: 1px solid #ADACAB;
+}
+
+tr.odd{
+    border: 1px solid #ADACAB;
+}
+
+.even td{
+
+    padding: 12px 12px 12px 15px;
+    border: 1px solid #ADACAB;
+    border-right: 0px solid #fff;
+    border-top: 0px solid #fff;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.odd td{
+    padding: 12px 12px 12px 15px;
+    border: 1px solid #ADACAB;
+    border-right: 0px solid #fff;
+    border-top: 0px solid #fff;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.table-header td{
+    padding: 12px 12px 12px 15px;
+    border-top: 1px solid #ADACAB;
+    border-left: 1px solid #ADACAB;
+    border-right: 1px solid #ADACAB;
+    color: #97080e;
+    background: #EEEEEE;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+}
+
+
+table#pdf-table{
+    border-top: 1px solid #ADACAB;
+    border-collapse:collapse
+}
+
+
+#page-extender{
+    width:100%;
+    height :300px;
+
+}
+#page-extender1{
+    width:100%;
+    height :500px;
+
+}
+
+.report{
+    /*min-height: 1000px;*/
+    margin: 0 auto;
+}
+
+#signature{
+    text-align: right;
+    width: 700px;
+    margin: 0 auto;
+    color: #999999;
+    font-size: 18px;
+}
+
+
+#page-yield h2{
+    text-align: center;
+}
+
+
+.page-break td{
+    height: 295px;
+    border: 1px solid #fff;
+    border-bottom: 1px solid #ADACAB;
+}
+
+.total{
+    color:#b00;
+    font-size: 15px;
+    text-align: center;
+}
+.col-2{
+    padding-left:10px;
+    padding-right:10px;
+}
+label{
+    color: #999999;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    width:100px;
+}
+.detail_describe{
+    color: #BB0000;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    padding-top:2px;
+}
+.info{
+    width:100%;
+    float:left;
+}
+.details_fee{
+    width:auto;
+    padding-bottom:15px;
+    height:50px;
+}
+.colon{
+    margin-left:50px;
+    margin-right:10px;
+    color :#27292B;
+    float:left;
+}
+
+

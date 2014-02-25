@@ -1,0 +1,43 @@
+<%-# SGAITECH Copyright 2013 ITECH CODE SAC-%>
+
+<div class="panel panel-primary" id="content-header">
+
+  <div class = "panel-heading">
+    <h4> 
+      <i class = "icon-user"></i>
+      <%= t('admission') %> | 
+      <span><%= t('emergency_contact_step3') %></span>
+    </h4>
+  </div>
+
+  <div class = "panel-body">
+
+        <div id="page-yield">
+
+          <% unless flash[:notice].nil? %> 
+            <p class="alert alert-info"> <%= flash[:notice] %> </p> 
+          <% end %>
+
+          <p class="flash-msg"><%= t('select_one_of_the_guardians') %></p>
+
+          <% form_for :immediate_contact do |f| %>
+            <ul id="parents-list">
+              <%- @parents.each do |p| -%>
+                <li class="list<%=cycle('odd', 'even')%>">
+                  <% if p.is_immediate_contact? %>
+                    <%= f.radio_button "contact", p.id, {:checked => 'checked'} %> <%= p.full_name %>
+                  <% else %>
+                    <%= f.radio_button "contact",p.id, :checked => 'checked'%> <%= p.full_name %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+            <div class ="form-actions">
+              <%= submit_tag "" , :value => "► #{t('finish')}", :id => 'finish-button' , :class => "btn btn-primary" %></div>
+            <% end %>
+            </div>
+        </div>
+  </div>
+</div>
+        
+        

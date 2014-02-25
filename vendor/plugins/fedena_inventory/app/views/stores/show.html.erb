@@ -1,0 +1,23 @@
+<p>
+  <b>Store type:</b>
+  <%=h @store.store_type_id %>
+</p>
+
+<p>
+  <b>Store category:</b>
+  <%=h @store.store_category_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @store.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @store.code %>
+</p>
+
+
+<%= link_to 'Edit', edit_store_path(@store) %> |
+<%= link_to 'Back', stores_path %>

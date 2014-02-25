@@ -1,0 +1,33 @@
+<div id="content-header">
+  <%= image_tag("/images/inventory2.png") %>
+  <h1><%= t('purchase_order') %></h1>
+  <h3><%= t('new_text') %></h3>
+  <div id="app-back-button">
+    <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+  </div>
+</div>
+<div id="inner-tab-menu"></div>
+<div class="bread_crumb">
+        <%= link_to "#{t('inventory_home')}",:controller=>"inventories",:action=>"index" %> &raquo;<%= link_to "#{t('purchase_order')}", purchase_orders_path %> &raquo;
+      <%= t('new_text') %>
+    </div>
+
+<%= render :partial => 'form' %>
+<script type="text/javascript">
+
+function remove_fields(link) {
+  $(link).previous("input[type=hidden]").value = "1";
+  $(link).up(".fields").hide();
+}
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).up().insert({
+    before: content.replace(regexp, new_id)
+  });
+}
+
+</script>
+
+
+

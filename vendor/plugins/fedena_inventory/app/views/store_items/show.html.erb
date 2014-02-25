@@ -1,0 +1,28 @@
+<p>
+  <b>Store:</b>
+  <%=h @store_item.store_id %>
+</p>
+
+<p>
+  <b>Item name:</b>
+  <%=h @store_item.item_name %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%=h @store_item.quantity %>
+</p>
+
+<p>
+  <b>Unit price:</b>
+  <%=h @store_item.unit_price %>
+</p>
+
+<p>
+  <b>Tax:</b>
+  <%=h @store_item.tax %>
+</p>
+
+
+<%= link_to 'Edit', edit_store_item_path(@store_item) %> |
+<%= link_to 'Back', store_items_path %>

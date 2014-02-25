@@ -1,0 +1,63 @@
+<div id="page-yield">
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <%= flash[:notice] %> </p>
+  <% end %>
+  <div class="box">
+   <% form_for(@supplier) do |f| %>
+     <%=  error_messages_for :supplier %>
+
+
+
+<div class = "row">
+  <div class="col-md-6 form-group">
+      <div class="label-container1"><%= "#{t('supplier_type')}" %></div>
+      <div class="text-input-bg"><%= f.collection_select :supplier_type_id, SupplierType.all, :id, :name %></div>
+  </div>
+
+  <div class="col-md-6 form-group">
+    <div class="label-container1"><%= "#{t('supplier name')}" %></div>
+    <div><%= f.text_field :name , :class => 'form-control input-sm'%></div>
+  </div>
+</div>
+      
+
+<div class = "row">
+  <div class="col-md-6 form-group">
+    <div class="label-container1"><%= "#{t('contact no')}" %></div>
+    <div><%= f.text_field :contact_no , :class => 'form-control input-sm'%></div>
+  </div>
+
+  <div class="col-md-6 form-group">
+    <div class="label-container1"><%= "#{t('address')}" %></div>
+    <div><%= f.text_field :address , :class => 'form-control input-sm'%></div>
+  </div> 
+</div>
+
+<div class = "row">
+  <div class="col-md-6 form-group">
+        <div class="label-container1"><%= "#{t('tin_no')}" %></div>
+        <div><%= f.text_field :tin_no , :class => 'form-control input-sm'%></div>
+  </div>
+
+  <div class="col-md-6 form-group">
+        <div class="label-container1"><%= "#{t('region')}" %></div>
+        <div><%= f.text_field :region , :class => 'form-control input-sm'%></div>
+  </div>
+</div>
+
+<div class = "row">
+  <div class="col-md-6 form-group">
+        <div class="label-container1"><%= "#{t('help_desk')}" %></div>
+        <div><%= f.text_field :help_desk , :class => 'form-control input-sm'%></div>
+      </div>
+</div>
+
+
+      <%= submit_tag "", :value => "► #{t('save')}", :class => "btn btn-primary" %>
+
+
+    <% end %>
+    <div class="extender"></div>
+  </div>
+</div>
+

@@ -1,0 +1,75 @@
+<div class="panel panel-primary" id="content-header">
+
+<div class = "panel-heading">
+    <h4> 
+      <i class="icon-book"></i> <i class="icon-repeat"> </i>
+      <%= "#{t('library_text')}"%> | 
+      <span><%= "#{t('return_book')}"%></span>
+    </h4>
+</div>
+
+<div class = "panel-body">
+      <div class = "barra-estado">
+        <div id="app-back-button">
+          <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+        </div>
+      </div>
+
+
+<div id="page-yield">
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <i class="icon-warning-sign"></i> <i class="icon-exclamation-sign"></i> <i class="icon-info-sign"></i> <%= flash[:notice] %> </p>
+  <% end %>
+  <% unless flash[:warn_notice].nil? %>
+    <div id="errorExplanation">
+      <ul>
+        <li>
+          <i class="icon-warning-sign"></i> <i class="icon-exclamation-sign"></i> <i class="icon-info-sign"></i> <%= flash[:warn_notice] %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+
+<div class = "row">
+    <%  if @book_detail.nil? %>
+      <% form_for :book do |f| %>
+ <div class="col-md-6 form-group">
+          <label for="book number"><%= "#{t('book_number')}"%> </label>
+          <div>
+            <%= f.text_field :number , :class => 'form-control input-sm' %>
+          </div>
+        </div>
+</div>
+
+<div class = "form-actions">
+        <%= f.submit "#{t('search_text')}",  :class => "btn btn-primary" %>
+</div>
+
+      <% end %>
+    <% else  %>
+      <div id="book_return">
+        <div class="name"><%= "#{t('book_number')}"%></div><div class="val"><span>:</span><%= @book.book_number %></div>
+        <div class="name"><%= "#{t('book_holder')}"%></div><div class="val"><span>:</span><%= @book_detail.user.full_name %></div>
+        <div class="name"><%= "#{t('book_issue_date')}"%></div><div class="val"><span>:</span><%= @book_detail.issue_date %></div>
+        <div class="name"><%= "#{t('book_due_date')}"%></div><div class="val"><span>:</span><%= @book_detail.due_date %></div>
+        <div class="extender"></div>
+        <br/>
+        <% form_for :return, :url=>{:action=>'update_return', :id=>@book_detail.id} do |f| %>
+          <% if Date.today > @book_detail.due_date and @book_detail.user.student? %>
+            <span class="exceeded"><%= "#{t('due_date_has_been_exceeded')}"%>:</span>
+            <div class="label-field-pair">
+              <label for="book number"><%= "#{t('enter_fine_amount')}"%></label>
+              <div class="text-input-bg">
+                <%= f.text_field :fine %>
+              </div>
+            </div>
+          <% end %>
+          <%= f.submit "#{t('return')}", :class=>'return_button' %>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>

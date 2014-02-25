@@ -1,0 +1,203 @@
+<%-# SGAITECH Copyright 2013 ITECH CODE SAC-%>
+
+<div class="panel panel-primary" id="content-header">
+<div class = "panel-heading">
+  <h4> 
+    <i class = "icon-user"></i>
+    <%= t('admission') %> | 
+    <span><%= t('parent_guardian_details_step2') %></span>
+  </h4>
+</div>
+
+  <div class = "panel-body">
+    <div id="page-yield">
+            <% unless flash[:notice].nil? %> <p class="alert alert-info"> <%= flash[:notice] %> </p> <% end %>
+            
+              <!-- INICIO DEL FORMULARIO  : ADMISION 2 , APODERADOS DE estudiantes  --> 
+          
+          <div id="parents">
+          <% unless @student.guardians.empty? %>
+            <ul id="parents-list">
+              <p><%= t('saved_message') %> <%= @student.full_name %> </p>
+              <%- @student.guardians.each do |p| -%>
+                <li class="list<%=cycle('odd', 'even')%>"><%= p.full_name %> - <%= p.relation %> </li>
+              <%  end %>
+              <DIV class = "form-actions">
+                
+                  <%= link_to_function "► #{t('add_another_guardian')}" , :class => "btn btn-primary" do |page|
+                    page.visual_effect :toggle_slide, "admission1_form"
+                    page.hide "parents"
+                  end %>
+                
+                
+                    <%= link_to "► #{t('finish')}", {:controller => "student", :action => "admission3", :id => @student.id }, :class => 'btn btn-default' %>
+               
+              </DIV>
+              <script type="text/javascript">
+                Event.observe(window, 'load', function() { $('admission1_form').hide(); });
+              </script>
+            </ul>
+
+          <%  end %>
+
+        </div>
+
+        <% form_for :guardian do |f| %>
+
+          <%= f.error_messages :header_message => nil %>
+
+          <div id="admission1_form">
+            <div id="admission1_form_vertical_block_left">
+
+              <div class="label-field-pair">
+                <label for="parent_detail_student_id"><%= "#{t('student_text')}  #{t('admission_number')}" %></label>
+                <div class="text_display"><%= @student.admission_no %></div>
+                <%= f.hidden_field :ward_id, :value => @student.id %>
+              </div>
+
+              <div class="well well-sm">
+                <span><%= t('parent') %> - <%= t('personal_details') %></span>
+              </div>
+
+              <div class = "row">
+                <div class="col-md-6 form-group">
+                  <label for="parent_detail_name"><%= t('first_name') %><span class="necessary-field">*</span></label>
+                  <div class="text-input-bg"><%= f.text_field :first_name , :class => 'form-control' %></div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label for="parent_detail_name"><%= t('last_name') %></label>
+                  <div class="text-input-bg"><%= f.text_field :last_name  ,:class => 'form-control'%></div>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class="col-md-6 form-group">
+                  <label for="parent_detail_relation"><%= t('relation') %><span class="necessary-field">*</span></label>
+                  <div class="text-input-bg"><%= f.text_field :relation  , :class => 'form-control' %></div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label for="parent_detail_dob"><%= t("date_of_birth") %></label>
+                  <div class="text-input-bg"><%= calendar_date_select_tag 'guardian[dob]', nil,
+                      :year_range => 60.years.ago..20.years.ago, :readonly=>true, :popup=>"force" , :class => 'form-control' %></div>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class="col-md-6 form-group">
+                  <label for="parent_detail_education"><%= t('education') %></label>
+                  <div class="text-input-bg"><%= f.text_field :education , :class => 'form-control'%></div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label for="parent_detail_occupation"><%= t('occupation') %></label>
+                  <div class="text-input-bg"><%= f.text_field :occupation , :class => 'form-control' %></div>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class="col-md-6 form-group">
+                  <label for="parent_detail_income"><%= t('income') %></label>
+                  <div class="text-input-bg"><%= f.text_field :income  , :class => 'form-control' %></div>
+                </div>
+              </div>
+             
+
+              <div class="well well-sm">
+                <span><%= t("parent") %> - <%= t('contact_details') %></span>
+              </div>
+
+
+              <div class = "row">
+                <div class="col-md-6 form-group">
+                  <label for="parent_detail_email"><%= t('email') %></label>
+                  <div class="text-input-bg"><%= f.text_field :email , :class => 'form-control' %></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="master_student_city"><%= t('address_line') %> 1</label>
+                  <% unless @student.address_line1.empty? %>
+                    <div class="text-input-bg"><%= f.text_field :office_address_line1,:value=>@student.address_line1 , :class => 'form-control'  %></div>
+                  <% else %>
+                    <div class="text-input-bg"><%= f.text_field :office_address_line1 , :class => 'form-control' %></div>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class = "row">
+                  <div class="col-md-6 form-group">
+                    <label for="master_student_city"><%= t('address_line') %> 2</label>
+                    <% unless @student.address_line2.empty? %>
+                      <div class="text-input-bg"><%= f.text_field :office_address_line2,:value=>@student.address_line2 , :class => 'form-control' %></div>
+                    <% else %>
+                      <div class="text-input-bg"><%= f.text_field :office_address_line2  , :class => 'form-control' %></div>
+                    <% end %>
+                  </div>
+
+                  <div class="col-md-6 form-group">
+                    <label for="parent_detail_city"><%= t('city') %></label>
+                    <% unless @student.city.empty? %>
+                      <div class="text-input-bg"><%= f.text_field :city,:value=>@student.city  , :class => 'form-control' %></div>
+                    <% else %>
+                      <div class="text-input-bg"><%= f.text_field :city  , :class => 'form-control' %></div>
+                    <% end %>
+                  </div>
+              </div>
+
+              <div class = "row">
+                  <div class="col-md-6 form-group">
+                    <label for="parent_detail_state"><%= t('state') %></label>
+                    <% unless @student.state.empty? %>
+                      <div class="text-input-bg"><%= f.text_field :state,:value=>@student.state , :class => 'form-control' %></div>
+                    <% else %>
+                      <div class="text-input-bg"><%= f.text_field :state  , :class => 'form-control' %></div>
+                    <% end %>
+                  </div>
+
+
+                  <div class="col-md-6 form-group">
+                    <label for="parent_detail_country"><%= t('country') %></label>
+                    <% unless @student.country.nil? %>
+                      <div class="text-input-bg"> <%= select :guardian, :country_id, Country.all.map {|c| [c.name, c.id]}, :selected => @student.country_id  , :class => 'form-control' %> </div>
+                    <% else %>
+                      <div class="text-input-bg"> <%= select :guardian, :country_id, Country.all.map {|c| [c.name, c.id]}, :selected => 76  , :class => 'form-control' %> </div>
+                    <% end %>
+                  </div>
+              </div>
+
+             
+              <div class = "row">
+                  <div class="col-md-6 form-group">
+                    <label for="parent_detail_office_phone1"><%= t('phone') %> 1</label>
+                    <div class="text-input-bg"><%= f.text_field :office_phone1 , :class => 'form-control'  %></div>
+                  </div>
+
+
+                  <div class="col-md-6 form-group">
+                    <label for="parent_detail_office_phone2"><%= t('phone') %> 2</label>
+                    <div class="text-input-bg"><%= f.text_field :office_phone2  , :class => 'form-control'  %></div>
+                  </div>
+              </div>
+
+
+              <div class = "row">
+                  <div class="col-md-6 form-group">
+                    <label for="parent_detail_mob_phone"><%= t('mobile') %></label>
+                    <div class="text-input-bg"><%= f.text_field :mobile_phone  , :class => 'form-control' %></div>
+                  </div>
+              </div>
+
+
+            <div class = "form-actions">
+              <%= submit_tag "", :value => " ► #{t('finish')}",  :name => "commit", :class => "btn btn-primary" %>         
+
+         
+              <%= link_to "► #{t('click_here_to_skip')}", {:controller => "student", :action => "admission3", :id => @student.id },:class => "btn btn-default" %>
+            </div>
+            </div>
+        <% end %>
+
+          </div>
+    </div>
+  </div>
+</div>

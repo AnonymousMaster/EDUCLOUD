@@ -1,0 +1,32 @@
+<% unless @indents.blank? %>
+<table>
+  <tr>
+   
+    <th>Indent no</th>
+    <th>Raised By</th>
+    <th>Expected date</th>
+    <th>Status</th>
+    <th>Emp dept</th>
+    <th>Manager</th>
+    <th>Description</th>
+  </tr>
+
+<% @indents.each do |indent| %>
+  <tr>
+   
+    <td><%=h indent.indent_no %></td>
+     <td><%=h indent.user.first_name %></td>
+    <td><%=h indent.expected_date %></td>
+    <td><%=h indent.status %></td>
+    <td><%=h indent.employee_department.name %></td>
+    <td><%=h Employee.find(indent.manager_id).first_name  %></td>
+    <td><%=h indent.description %></td>
+    <td><%= link_to 'Show', indent %></td>
+    <td><%= link_to 'Edit', edit_indent_path(indent) %></td>
+    <td><%= link_to 'Destroy', indent, :confirm => 'Are you sure?', :method => :delete %></td>
+     <td><%= link_to 'Accept',  :controller=>'indents', :action => 'acceptance', :id => indent.id %></td
+  </tr>
+<% end %>  
+</table>
+<% end %>
+

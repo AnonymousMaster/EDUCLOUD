@@ -1,0 +1,30 @@
+<h1>Listing grns</h1>
+
+<table>
+  <tr>
+    <th>Grn no</th>
+    <th>Supplier</th>
+    <th>Purchase order</th>
+    <th>Store</th>
+    <th>Invoice no</th>
+    <th>Grn date</th>
+    <th>Invoice date</th>
+    <th>Other chages</th>
+  </tr>
+
+<% @grns.each do |grn| %>
+  <tr>
+    <td><%=h grn.grn_no %></td>
+    <td><%=h grn.supplier.name %></td>
+    <td><%=h grn.purchase_order.po_no %></td>
+    <td><%=h grn.store.name %></td>
+    <td><%=h grn.invoice_no %></td>
+    <td><%=h grn.grn_date %></td>
+    <td><%=h grn.invoice_date %></td>
+    <td><%=h grn.other_chages %></td>
+    <td><%= link_to 'Show', grn %></td>
+    <td><%= link_to 'Edit', edit_grn_path(grn) %></td>
+    <td><%= link_to 'Destroy', grn, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

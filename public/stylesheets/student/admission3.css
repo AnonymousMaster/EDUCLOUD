@@ -1,0 +1,27 @@
+
+ul#parents-list {
+    height : auto; width : 500px;
+    margin : auto;
+    padding : 0;
+}
+ul#parents-list li.listodd {
+background: #E4EBFE;
+border: 1px solid #BECFFB;
+width: 450px;
+list-style-type: none;
+padding: 0.5em 0 10px 50px;
+overflow: hidden;
+}
+ul#parents-list li.listeven {
+background: #EEF2FD;
+border: 1px solid #BECFFB;
+width: 450px;
+list-style-type: none;
+padding: 0.5em 0 10px 50px;
+}
+#submit-button{
+   
+}
+#finish-button {
+  
+}

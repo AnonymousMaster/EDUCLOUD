@@ -1,0 +1,3 @@
+#page << "$('#{@i}').up(2).select('.nested_storeitem').first().value = #{@store_storeitem}"
+page << "$$('#nested_storeitem').each(function(ele){ ele.update('#{render :partial=>'store_item'}') });"
+

@@ -1,0 +1,76 @@
+es:
+  activerecord:
+    attributes:
+    #validation errors
+
+      online_exam_attendance:
+        online_exam_score_details: "Detalles del examen en línea Puntuación"
+
+      online_exam_group:
+        name: "Nombre"
+        start_date: "Fecha de inicio"
+        end_date: "Fecha de finalización"
+        maximum_time: "El tiempo máximo"
+        pass_percentage: "Pase Porcentaje"
+
+      online_exam_option:
+        option: "Opción"
+
+      online_exam_question:
+        question: "Pregunta"
+        mark: "Marca"
+        online_exam_options: "Opciones de examen en línea"
+
+#common
+  online_exam_text: "Examen en línea"
+  select_exam: "Seleccione el examen"
+  exam_result_text: "Resultados del examen"
+  failed: "Fracasado"
+  passed: "Pasado"
+  question: "Pregunta"
+  options: "Opciones"
+  question_created_successfully: "Cuestión ha creado correctamente"
+  exam_group_successfully_deleted: "Grupo de examen se ha eliminado correctamente"
+  sorry_cannot_publish_an_exam_without_questions_please_add_minimum_one_question: "¡Lo siento! No se puede publicar un examen sin preguntas. Por favor, añada una cuestión mínima"
+  exam_reset_successful_for_selected_students: "Examen de éxito para los estudiantes seleccionados restablecer"
+  sorry_no_students_selected: "¡Lo siento! No se selecciona a estudiantes"
+  enter_options_here: "Introduzca las opciones aquí"
+  is_answer: "Es la respuesta"
+  edit_option: "Editar Opciones"
+  edit_question_text: "Editar la pregunta"
+  delete_question: "Eliminar Pregunta"
+  add_question: "Añadir pregunta"
+  new_online_exam_text: "Nuevo examen en línea"
+  maximum_time_minutes: "Tiempo máximo (en minutos)"
+  pass_percentage: "Pasar de porcentaje (%)"
+  create_questions: "Crear Preguntas"
+  reset_exam: "Restablecer el examen"
+  view_online_exams: "Ver Exámenes en Línea"
+  are_you_sure_to_delete_this_exam_group: "¿Estás seguro de eliminar este grupo de examen"
+  no_exam_created_for_selected_batch: "No hay examen creado por lote seleccionado"
+  view_result_text: "Ver Resultados"
+  select_student: "Seleccione Estudiante"
+  no_students_has_atended_the_selcted_exam_group: "Ningún estudiante ha asistido el grupo de examen selcted"
+  add_questions: "Agregar preguntas"
+  no_question_added_to_this_exam_group: "Sin lugar a dudas a este grupo el examen"
+  this_will_delete_the_question_and_associated_answers_are_you_sure: "Esto eliminará la pregunta y las respuestas asociadas. ¿Está seguro?"
+  no_student_attended_this_exam: "Ningún estudiante asistió a este examen"
+  online_examination_result: "Resultado del examen en línea"
+  create_new_online_exam: "Crear nuevo examen en línea"
+  view_existing_online_exam: "Ver examen en línea existentes"
+  view_exam_results: "Ver Resultados de los exámenes"
+  view_online_exam_results: "Ver los resultados de examen en línea"
+  reset_exam_for_a_student: "Perdí mi examen para un estudiante"
+  option_per_question: "Opción por pregunta"
+  view_results: "Ver resultados"
+  you_have_successfully_completed_the_exam: "Ha completado con éxito el examen"
+  sorry_you_have_already_attended_this_exam: "¡Lo siento! Que ya han asistido a este examen"
+  exam_name: "Nombre del examen"
+  minutes: "Minutos"
+  start_exam: "Inicio del examen"
+  sorry_your_answers_are_not_acepted_as_the_maximum_time_exeeded_please_contact_the_exam_admin: "¡Lo siento! Sus respuestas no son admitida como el tiempo máximo que se excedió. Por favor, póngase en contacto con el administrador del examen"
+  total_score: "Puntuación Total"
+  time_left: "Tiempo restante"
+  manage_online_exam_system: "Sistema de gestión de exámenes en línea"
+  exam_group_successfully_updated: "Grupo de Examen actualizado correctamente"
+  atleast_one_option_must_be_answer: "Al menos una de las opciones debe ser la respuesta"

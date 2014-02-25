@@ -1,0 +1,57 @@
+#TODO modifying this page
+
+<% form_for(@indent) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :indent_no %><br />
+    <% unless @last_indent.nil? %>
+    <%= f.text_field :indent_no, :value=> @last_indent.next %>
+    <% else %>
+    <%= f.text_field :indent_no %>
+    <% end %>
+  </p>
+
+  <% current_user =User.find(session[:user_id]) unless session[:user_id].nil? %>
+  <% reporting_manager = Employee.find_by_user_id(current_user.id).reporting_manager_id %>
+  <%  employee =Employee.find_by_user_id(current_user.id) %>
+
+
+   <%= f.label :employee_department_id %>
+   <%= f.hidden_field :employee_department_id, :value => employee.employee_department_id %>
+  
+    <%= f.label :user_id %>
+    <%= f.hidden_field :user_id, :value=> current_user.id %>
+ 
+  <p>
+    <%= f.label :store_id %><br />
+   <%= f.collection_select :store_id, Store.all, :id, :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :expected_date %><br />
+    <%= f.date_select :expected_date %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.select :status, %w{Pending Accepted Issued Rejected} %>
+  </p>
+  
+    <%#= f.label :manager_id %>
+    <%= f.hidden_field :manager_id , :value => reporting_manager %>
+  
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows => 3 %>
+  </p>
+<h2> Indent Items</h2>
+  <p>
+    <%  f.fields_for :indent_items do |i| %> 
+    <%=  render 'indent_item_fields', :f => i %>
+    <% end %>
+ </p>
+<div class="fields"><%= link_to_add_fields "add items", f , :indent_items %></div><br />
+
+    <%= f.submit 'create' %>
+  
+<% end %>

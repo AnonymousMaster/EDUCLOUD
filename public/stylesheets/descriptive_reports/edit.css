@@ -1,0 +1,13 @@
+.submit-button {
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+background: #27292B;
+border: none;
+color: white;
+font-size: 14px;
+font-weight: bold;
+margin: 10px 0 0 210px;
+padding: 7px;
+float: left;
+cursor: pointer;
+}

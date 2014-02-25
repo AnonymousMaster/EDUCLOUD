@@ -1,0 +1,44 @@
+#submit-button input{
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    background:#27292B none repeat scroll 0 0;
+    color:#FFFFFF;
+    font-family:arial;
+    font-size:14px;
+    font-weight:bold;
+    margin:0px auto;
+    float:left;
+    margin-top:20px;
+    margin-left: 215px;
+    padding:7px 12px;
+    border:none;
+    text-align:center;
+    width:auto;
+    cursor:pointer;
+}
+.text-area-bg {
+  background: transparent none repeat scroll 0 0;
+  float: left;
+  width: 250px;
+}
+.label-field-pair input, .label-field-pair textarea {
+  width: 300px;
+}
+.label-field-pair textarea {
+  border-radius: 10px;
+  background: #EEEEEE none repeat scroll 0 0;
+  border: 1px solid #C6C6C6;
+  margin: 5px 0 0px 10px;
+  padding: 5px;
+  width: 205px;
+  height: 200px;
+}
+.label-field-pair textarea:focus {
+background: #fff;
+border: 1px solid #9e0f15;
+}
+.label-field-pair {
+height: 250px;
+width: 600px;
+padding-top: 3px;
+}

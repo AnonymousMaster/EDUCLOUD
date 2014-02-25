@@ -1,0 +1,10 @@
+company_details:
+ company_name: "Fedena123"
+ company_url: "http://www.foradian.com/"
+
+ <%  #"Si aparece la ventana del Firewall de Windows pidiendo autorización para desbloquear el puerto 3000, dar click en <Desbloquear>, en caso de tener un antivirus con Firewall u otro programa similar, debe autorizar la entrada y salida de información por el puerto 3000.
+#Si tiene un a red local y desea entrar a la aplicación desde otro equipo, ingrese en barra de direcciones del navegador de Internet la dirección IP del equipo en el cual se instaló Globoschool libre, seguido de :3000. Ej. 192.168.0.100:3000.
+#En el futuro, cada vez que vaya a entrar a la aplicación debe seguir los siguientes pasos:
+#Abrir la ventana de comandos de Ruby (Start Command Prompt with Ruby) tal como se muestra en el paso 2 de este tutorial.
+#Ir a la carpeta de la aplicación con el comando: cd \free_globoschool
+#Luego ejecutar el comando: ruby script/server -e production " %>

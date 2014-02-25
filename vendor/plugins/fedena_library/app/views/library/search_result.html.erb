@@ -1,0 +1,58 @@
+<div class="panel panel-primary" id="content-header">
+
+
+<div class = "panel-heading">
+    <h4> 
+      <i class="icon-book"></i> <i class="icon-zoom-in"> </i>
+      <%= "#{t('library_text')}"%> | 
+      <span><%= "#{t('book_search_result')}"%></span>
+    </h4>
+</div>
+
+<div class = "panel-body">
+      <div class = "barra-estado">
+        <div id="app-back-button">
+          <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+        </div>
+      </div>
+
+<div id="page-yield">
+
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <%= flash[:notice] %> </p>
+  <% end %>
+  <% unless flash[:warn_notice].nil? %>
+    <div id="errorExplanation" class="errorExplanation">
+      <h2>
+        <%= flash[:warn_notice] %>
+      </h2>
+    </div>
+  <% end %>
+  <% unless @books.empty? %>
+
+<div class="table-responsive">
+  <table   class="table table-bordered table-striped table-hover table-condensed">
+      <tr class="tr-head">
+        <td class="success"><%= "#{t('book_number')}"%></td>
+        <td class="success"><%= "#{t('book_title')}"%></td>
+        <td class="success"><%= "#{t('author')}"%></td>
+        <td class="danger"><%= "#{t('status')}"%></td>
+      </tr>
+      <tr class="tr-blank"></tr>
+      <% @books.each do |b| %>
+        <tr class="tr-<%= cycle('odd', 'even') %>">
+          <td class="active"><%= b.book_number %></td>
+          <td class="active"><%= link_to b.title, b%></td>
+          <td class="active"><%= b.author %></td>
+          <td class="danger"><%= t("#{b.status.downcase}") %></td>
+        </tr>
+        <div id="availability-<%= b.id  %>"></div>
+      <% end  %>
+    </table>
+</div>
+  <% else %>
+    <%= "#{t('try_again')}"%>
+  <% end %>
+</div>
+</div>
+</div>

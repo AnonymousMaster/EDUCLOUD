@@ -1,0 +1,123 @@
+#fees-table{
+    padding-top: 10px;
+    width:839px;
+    height:auto;
+}
+.fees-th {
+    background: none repeat scroll 0 0 #BECFFB;
+    border-bottom: 1px solid #BECFFB;
+    font-weight: normal;
+    height: 1.5em;
+    list-style-type: none;
+    padding: 0.5em 1em 0 0;
+}
+
+.fees-table-payee{
+    float:right;
+    width:305px;
+    padding-right:65px;
+}
+.fees-table-category{
+    padding-right:100px;
+    float:right;
+    width:150px;
+}
+.fees-table-amount{
+    padding-right:50px;
+    float:right;
+    width:75px;
+}
+.fees-table-date{
+    padding-right:50px;
+    float:right;
+    width:75px;
+}
+.fees-table-reciept{
+    margin-right:50px;
+    float:right;
+    width:75px;
+    text-align: left;
+}
+
+.fees-table-total-amount {
+    float: left;
+    margin-left: 75px;
+}
+.fees-table-total-name {
+    float: right;
+    margin-right: 286px;
+    width: auto;
+}
+
+.listeven{
+    background : #EEF2FD;
+    border-bottom:1px solid #BECFFB;
+    color : #444;
+    height : 1.5em;
+    list-style-type : none;
+    padding: 10px 16px 0 0;
+    font-size: 14px;
+    width:824px;
+
+}
+
+.listodd{
+    background : #DFEAFF;
+    border-bottom:1px solid #BECFFB;
+    color : #444;
+    height : 1.5em;
+    list-style-type : none;
+    padding: 10px 16px 0 0;
+    font-size: 14px;
+    width:824px;
+
+}
+
+#fees_report_title{
+}
+.fees-table-description a{
+    width: 254px;
+    text-decoration: none;
+    color: #444444;
+}
+
+.fees-table-description a:hover{
+    width: 254px;
+    text-decoration: none;
+    color: #BB0000;
+}
+
+.report-detail{
+    width:530px;
+    float:right;
+    height:30px;
+    margin-top:30px;
+    margin-bottom:15px;
+}
+
+.report-detail-left{
+    width:300px;
+    float:right;
+    height:15px;
+}
+.report-detail-right{
+    float:right;
+    width:230px;
+    height:15px;
+}
+.report-detail-left-name{
+    width:50px;
+    float:right;
+}
+.report-detail-left-value{
+    width:250px;
+    float:right;
+}
+.report-detail-right-name{
+    width:70px;
+    float:right;
+}
+.report-detail-right-value{
+    width:160px;
+    float:right;
+}

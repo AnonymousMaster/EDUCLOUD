@@ -1,0 +1,53 @@
+<div class="panel panel-primary" id="content-header">
+
+<div class = "panel-heading">
+    <h4> 
+      <i class="icon-book"></i> <i class="icon-edit"> </i>
+      <%= "#{t('library_text')}"%> | 
+      <span><%= "#{t('issue_book_text')}"%></span>
+    </h4>
+</div>
+
+<div class = "panel-body">
+      <div class = "barra-estado">
+        <div id="app-back-button">
+          <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+        </div>
+      </div>
+
+
+<div id="page-yield">
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <%= flash[:notice] %> </p>
+  <% end %>
+  <% unless flash[:warn_notice].nil? %>
+    <div id="errorExplanation">
+      <ul>
+        <li>
+          <%= flash[:warn_notice] %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "row">
+    <% form_for :search  do |f| %>
+
+      <div class="col-md-6 form-group">
+        <label for="book number"><%= "#{t('search_book_text')}"%></label>
+        <div>
+          <%= f.text_field :name , :class => 'form-control input-sm'%>
+        </div>
+      </div>
+  </div>
+
+<div class = "form-actions">
+      <%= f.submit "#{t('search_text')}", :class => "btn btn-primary" %>
+</div>
+    <% end %>
+  </div>
+</div>
+
+</div>
+</div>
+

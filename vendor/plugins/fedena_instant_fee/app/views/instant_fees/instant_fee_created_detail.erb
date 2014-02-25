@@ -1,0 +1,86 @@
+<%-# Fedena
+#Copyright 2010 Foradian Technologies Private Limited
+#
+#This product includes software developed at
+#Project Fedena - http://www.projectfedena.org/
+#
+#Licensed under the Apache License, Version 2.0 (the "License");
+#you may not use this file except in compliance with the License.
+#You may obtain a copy of the License at
+#
+#  http://www.apache.org/licenses/LICENSE-2.0
+#
+#Unless required by applicable law or agreed to in writing,
+#software distributed under the License is distributed on an
+#"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#KIND, either express or implied.  See the License for the
+#specific language governing permissions and limitations
+#under the License. -%>
+
+<div id="content-header">
+  <%= image_tag("/images/show_finance.png") %>
+  <h1><%= t('instant_fees_text') %></h1>
+  <h3><%= "#{t('view_created_instant_fee')}" %></h3>
+  <div id="app-back-button">
+    <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+  </div>
+</div>
+<div id="inner-tab-menu">
+  <ul>
+    <li id="particular"><%= link_to "#{t('new_text')}", :controller => 'instant_fees',:action => 'new_instant_fees' %></li>
+  </ul>
+</div>
+<div id="page-yield">
+  <div id="flash_box">
+  </div>
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <%= flash[:notice] %> </p>
+  <% end %>
+
+  <div id="list_transactions">
+    <div class="extender"></div>
+    <div class="details_fee">
+      <div class="info"><label><%= t('payee_name') %></label><span class="colon">:</span><div class="detail_describe"><%= @instant_fee.payee_name %></div></div>
+      <div class="info"><label><%= t('category_name') %></label><span class="colon">:</span><div class="detail_describe"><%= @instant_fee.category_name %></div></div>
+    </div>
+    <% total_amount = 0 %>
+    <% total_net_amount = 0 %>
+    <table class="sortable" id="listing" width="100%">
+      <tr class="tr-head">
+        <th class="col-sl"><%= t('sl_no') %></th>
+        <th class="col-2"><%= t('particular_name') %></th>
+        <th class="col-2"><%= t('amount') %></th>
+        <th class="col-2"><%= t('discount') %>(%)</th>
+        <th class="col-total"><%= t('total_amount') %></th>
+      </tr>
+      <tr class="tr-blank"></tr>
+      <% @instant_fee_details.each_with_index do |detail,index| %>
+        <tr class="tr-<%= cycle('odd','even') %>">
+          <td class="col-sl"><%= index +=1 %></td>
+          <td class="col-2"><%= detail.particular_name %></td>
+          <td class="col-2"><%= detail.amount %></td>
+          <td class="col-2"><%= detail.discount %></td>
+          <td class="col-total"><%= detail.net_amount %></td>
+          <% total_amount += detail.amount  unless detail.amount.nil?%>
+          <% total_net_amount += detail.net_amount unless detail.net_amount.nil?%>
+        </tr>
+      <% end %>
+      <tr class="tr-<%= cycle('odd','even') %>">
+        <td class="total" colspan ="2"><b><%= t('total') %></b></td>
+        <td class="col-2"><%= total_amount %></td>
+        <td class="col-2"></td>
+        <td class="col-total"><%= total_net_amount %></td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <div class="pay_fees">
+            <div class="options-pay">
+              <div class="print_reciept"><%= link_to "#{t('print_receipt')}", :controller=> "instant_fees",:action => "print_reciept" ,:id=>@instant_fee.id%>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

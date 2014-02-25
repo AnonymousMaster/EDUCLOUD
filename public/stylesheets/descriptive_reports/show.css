@@ -1,0 +1,198 @@
+.header{
+  list-style-type: none;
+  font-weight: bold;
+}
+li.student_names, li.student_names a{
+  text-decoration: none;
+  /*    margin-top: 5px;*/
+  color: black;
+  width:100%;
+  min-width:100%;
+  display: block;
+  padding: 2px 0 2px 0;
+}
+.student_list{
+  list-style-type: none;
+  clear : both;
+  width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  font-size: 13px;
+  padding: 0px;
+  float: left;
+}
+
+.student_list a:hover{
+  text-decoration: none;
+  background-color:  #F1F6FF;
+  width:100%;
+
+}
+.student_list a:active{
+  text-decoration: none;
+/*    font-weight: bold;*/
+}
+.active-link{
+  font-weight: bold;
+  color: #C00 !important;
+}
+.student-name{
+  height: 28px;
+}
+#exam_wise_report{
+  /*    float: left;*/
+  margin-left:  230px;
+}
+.list_name{
+  font-weight: bold;
+}
+table#listing td{
+  font-size: 13px;
+  font-weight: bold;
+}
+table#listing tr.tr-head {
+  color: #C00;
+  font-size: 13px;
+}
+.student{
+  font-weight: bold;
+  text-align: left !important;
+  margin-left: 10px;
+}
+.active-link{
+  font-weight: bold;
+  color: #C00 !important;
+}
+.student-name{
+  height: 28px;
+}
+#score-table{
+  background: #C3D9FF;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 20px 20px;
+}
+table#listing{
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.custom_header{
+  margin: 0 auto;
+  padding: 5px;
+  /*    text-align: center;*/
+  background: #fff;
+}
+
+table#listing td.col-1 {
+  padding:5px 5px 5px 10px;
+  width:5%;
+}
+table#listing td.col-2 {
+  padding:5px 5px 5px 10px;
+  width:1%;
+}
+#report_table{
+  margin-left: 230px;
+}
+#top_msg{
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  width: 750px;
+  float: right;
+}
+#top_msg span{
+  color: #C00;
+}
+
+#remarks_list{
+  list-style: none;
+  padding: 10px;
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#student_remarks_form {
+  height: auto;
+  overflow: hidden;
+}
+.add_remark {
+  text-decoration: none;
+  font-size: 12px;
+  color: #C00;
+}
+#custom-remark .label-field-pair {
+  height: 80px;
+}
+#custom-remark {
+  height: auto;
+  overflow: hidden;
+}
+#custom-remark .submit-button {
+  float: left;
+  width: auto;
+  height: 27px;
+  margin: 20px 9px;
+}
+.label-field-pair input, .label-field-pair textarea {
+  width: 300px;
+}
+.label-field-pair textarea {
+  border-radius: 10px;
+  background: #EEEEEE none repeat scroll 0 0;
+  border: 1px solid #C6C6C6;
+  margin: 5px 0 0px 10px;
+  padding: 5px;
+  width: 360px;
+  height: 50px;
+}
+.label-field-pair textarea:focus {
+  background: #fff;
+  border: 1px solid #9e0f15;
+}
+#custom-remark textarea{
+  float: left;
+}
+.match span {
+  background: #fff2a8;
+  line-height: 1.6;
+}
+.highlight span {
+  background: #a8d1ff;
+  line-height: 1.6;
+}
+ul#remarks_list span{
+  padding: 2px;
+  border-radius: 5px;
+}
+.submit_button{
+  border-radius: 8px;
+  background: #27292B;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px;
+  margin-left: 7px;
+  margin-top: 3px;
+}
+#remarks_list li {
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+#remarks_list li input {
+  float: left;
+}
+#remarks_list li span {
+  float: left;
+  width: 94%;
+}
+a.delete-link{
+  text-decoration: none;
+  color: red;
+  font-size: 10px;
+}

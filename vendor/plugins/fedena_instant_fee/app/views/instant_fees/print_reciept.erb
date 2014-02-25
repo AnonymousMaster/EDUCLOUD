@@ -1,0 +1,67 @@
+<%-# Fedena
+#Copyright 2010 Foradian Technologies Private Limited
+#
+#This product includes software developed at
+#Project Fedena - http://www.projectfedena.org/
+#
+#Licensed under the Apache License, Version 2.0 (the "License");
+#you may not use this file except in compliance with the License.
+#You may obtain a copy of the License at
+#
+#  http://www.apache.org/licenses/LICENSE-2.0
+#
+#Unless required by applicable law or agreed to in writing,
+#software distributed under the License is distributed on an
+#"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#KIND, either express or implied.  See the License for the
+#specific language governing permissions and limitations
+#under the License. -%>
+<% index = 0 %>
+<div class="page">
+  <div id="page-yield">
+    <div class="hor_line"></div>
+    <h2>Instant Fee Reciept</h2>
+    <div class="hor_line"></div>
+    <div class="extender"> </div>
+    <div class="extender"> </div>
+    <div class="report">
+      <div class="extender"></div>
+      <div class="details_fee">
+        <div class="info"><label><%= t('payee_name') %></label><span class="colon">:</span><div class="detail_describe"><%= @instant_fee.payee_name %></div></div>
+        <div class="info"><label><%= t('category_name') %></label><span class="colon">:</span><div class="detail_describe"><%= @instant_fee.category_name %></div></div>
+      </div>
+      <% total_amount = 0 %>
+      <% total_net_amount = 0 %>
+      <div id="pdf-info">
+        <table id="pdf-table" width="100%" cellspacing="0">
+          <tr class="table-header">
+            <td class="col-pdf">Sl no.</td>
+            <td class="col-pdf"> Particular Name </td>
+            <td class="col-pdf"> Amount </td>
+            <td class="col-pdf"> Discount(%)</td>
+            <td class="col-pdf">Net Amount</td>
+          </tr>
+          <% @instant_fee_details.each do |detail| %>
+            <tr class="<%= cycle('even','odd') %>">
+              <td class="col-pdf"><%=  index += 1 %></td>
+              <td class="col-pdf"><%= detail.particular_name %></td>
+              <td class="col-pdf"> <%= detail.amount %></td>
+              <td class="col-pdf"><%= detail.discount %></td>
+              <td class="col-pdf"><%= detail.net_amount %></td>
+              <% total_amount += detail.amount %>
+              <% total_net_amount += detail.net_amount %>
+            <% end %>
+          <tr class="<%= cycle('even','odd') %>">
+            <td class="total" colspan ="2"><b><%= "Total" %></b></td>
+            <td class="col-pdf"><%= total_amount %></td>
+            <td class="col-pdf"></td>
+            <td class="col-pdf"><%= total_net_amount %></td>
+          </tr>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="page-bottom"></div>
+</div>
+
