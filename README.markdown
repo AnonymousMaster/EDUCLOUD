@@ -7,9 +7,9 @@ The Project RIVER website http://www.eduitech.hol.es/ is the home to the develop
 #Demo
 A demo website for RIVER has been set up at river.herokuapp.com You can log in with following usernames and passwords:
 
-    * As admin -- username - admin, password - admin123
-    * As student -- username - 1, password - 1123
-    * As employee -- username - E1, password - E1123
+    * As admin -- username - admin, password - 123
+    * As student -- username - 1, password - 123
+    * As employee -- username - E1, password - 123
 
 #License
 
