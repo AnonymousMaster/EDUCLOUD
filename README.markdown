@@ -19,4 +19,10 @@ EDUCLOUD is released under the Apache License 2.0.
 
 Visit www.eduitech.hol.es for community support.
 
+Codefish
+=================================================
 
+This application is used for screencast tutorials about how to set up Codeship projects with 
+Ruby on Rails applications.
+
+![Codeship Status](https://www.codeship.io/projects/3d03cd00-b333-0131-c8ce-0aac319845e5/status)
