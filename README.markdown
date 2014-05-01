@@ -18,3 +18,5 @@ EDUCLOUD is released under the Apache License 2.0.
 #Community Support:
 
 Visit www.eduitech.hol.es for community support.
+
+![Codeship Status](https://www.codeship.io/projects/3d03cd00-b333-0131-c8ce-0aac319845e5/status)
